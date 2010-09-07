@@ -1,5 +1,6 @@
 # Name of the blog
-blog_name = '<span class="title-double">Double</span><span class="title-dutch">Dutch</span> <span class="title-games">Games</span>'
+blog_name = 'DoubleDutch Games'
+blog_name_header = '<span class="title-double">Double</span><span class="title-dutch">Dutch</span> <span class="title-games">Games</span>'
 
 # Your name (used for copyright info)
 author_name = 'DoubleDutch Games'
