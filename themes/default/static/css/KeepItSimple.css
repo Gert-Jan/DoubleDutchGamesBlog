@@ -212,6 +212,9 @@ input.button {
 	/* change the values of top and left to adjust the position of the logo*/
 	top: 90px; left: 20px;	
 }
+#header h1#logo-text a .title-double{ color: #ff9900; }
+#header h1#logo-text a .title-dutch{ color: #ff5500; }
+#header h1#logo-text a .title-games{ color: #73cb66; }
 #header h1#logo-text a:hover { border: none; }
 #header p#intro {
 	position: absolute;

@@ -35,8 +35,7 @@
 				<li{% ifequal generator_class "IndexContentGenerator" %} id="current"{% endifequal %}><a href="{{config.url_prefix}}/">Home</a></li>
         {% block menu %}{% endblock %}
 			</ul>
-		</div>		
-		<div id="header-image"></div> 
+		</div>
     <form id="quick-search" action="{{config.url_prefix}}/search" method="get">
       <p>
         <label for="q">Search:</label>
