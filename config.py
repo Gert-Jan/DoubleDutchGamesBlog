@@ -1,14 +1,14 @@
 # Name of the blog
-blog_name = 'My Blog'
+blog_name = '<span class="title-double">Double</span><span class="title-dutch">Dutch</span> <span class="title-games">Games</span>'
 
 # Your name (used for copyright info)
-author_name = 'the author'
+author_name = 'DoubleDutch Games'
 
 # (Optional) slogan
-slogan = 'This is my blog'
+slogan = 'Stories about Game Design and Game Technology'
 
 # The hostname this site will primarially serve off (used for Atom feeds)
-host = 'localhost:8080'
+host = 'www.doubledutchgames.com'
 
 # Selects the theme to use. Theme names correspond to directories under
 # the 'themes' directory, containing templates and static content.
@@ -25,12 +25,10 @@ post_path_format = '/%(year)d/%(month)02d/%(slug)s'
 # enough, you can edit themes/default/base.html instead.
 sidebars = [
   ('Blogroll', [
-    '<a href="http://blog.notdot.net/">Nick Johnsonz</a>',
-    '<a href="http://www.billkatz.com/">Bill Katz</a>',
-    '<a href="http://www.codinghorror.com/blog/">Coding Horror</a>',
-    '<a href="http://craphound.com/">Craphound</a>',
-    '<a href="http://www.neopythonic.blogspot.com/">Neopythonic</a>',
-    '<a href="http://www.schneier.com/blog/">Schneier on Security</a>',
+    '<a href="http://www.tigsource.com/">TIGSource</a>',
+    '<a href="http://www.indiegames.com/">Indie Games</a>',
+	'<a href="http://www.wolfire.com/">Wolfire</a>',
+    '<a href="http://www.theoddworks.com/">The Oddworks</a>',
   ]),
 ]
 
