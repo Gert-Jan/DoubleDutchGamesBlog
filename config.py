@@ -25,9 +25,11 @@ post_path_format = '/%(year)d/%(month)02d/%(slug)s'
 # A nested list of sidebar menus, for convenience. If this isn't versatile
 # enough, you can edit themes/default/base.html instead.
 sidebars = [
-  ('Blogroll', [
+  ('Links', [
     '<a href="http://www.tigsource.com/">TIGSource</a>',
     '<a href="http://www.indiegames.com/">Indie Games</a>',
+	'<a href="http://www.musicbyjonathan.com/">MusicByJonathan</a>',
+	'<a href="http://www.framestate.nl/">Framestate</a>',
 	'<a href="http://www.wolfire.com/">Wolfire</a>',
     '<a href="http://www.theoddworks.com/">The Oddworks</a>',
   ]),
@@ -41,13 +43,13 @@ html_mime_type = "text/html; charset=utf-8"
 
 # To use disqus for comments, set this to the 'short name' of the disqus forum
 # created for the purpose.
-disqus_forum = None
+disqus_forum = 'doubledutchgamesblog'
 
 # Length (in words) of summaries, by default
 summary_length = 200
 
 # If you want to use Google Analytics, enter your 'web property id' here
-analytics_id = None
+analytics_id = 'UA-18419693-1'
 
 # If you want to use PubSubHubbub, supply the hub URL to use here.
 hubbub_hub_url = 'http://pubsubhubbub.appspot.com/'
