@@ -18,11 +18,12 @@
     <p>Posts {{offset|add:1}} to {{last_post|add:1}}</p>
     <table>
       <thead>
-	<tr><th>Title</th><th>Published</th><th>Actions</th></tr>
+	<tr><th>Title</th><th>Author</th><th>Published</th><th>Actions</th></tr>
       </thead>
       {% for post in posts %}
         <tr>
           <td><a href="{{config.url_prefix}}/admin/post/{{post.key.id}}">{{post.title|escape}}</a></td>
+		  <td>{{post.author}}</td>
           <td>{% if post.path %}{{post.published|date:"Y-m-d"}}{% else %}Draft{% endif %}</td>
 	  <td>
 	    {% if post.path %}

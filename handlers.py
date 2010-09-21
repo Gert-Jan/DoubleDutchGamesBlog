@@ -4,6 +4,7 @@ import os
 
 from google.appengine.ext import deferred
 from google.appengine.ext import webapp
+from google.appengine.api import users
 
 import config
 import markup
@@ -17,6 +18,7 @@ from google.appengine.ext.db import djangoforms
 
 class PostForm(djangoforms.ModelForm):
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'name'}))
+  author = forms.CharField(required=False, widget=forms.TextInput(attrs={'readonly':'true'}))
   body = forms.CharField(widget=forms.Textarea(attrs={
       'id':'message',
       'rows': 10,
@@ -27,7 +29,7 @@ class PostForm(djangoforms.ModelForm):
   draft = forms.BooleanField(required=False)
   class Meta:
     model = models.BlogPost
-    fields = [ 'title', 'body', 'tags' ]
+    fields = [ 'title', 'author', 'body', 'tags' ]
 
 
 def with_post(fun):
@@ -81,6 +83,7 @@ class PostHandler(BaseHandler):
     self.render_form(PostForm(
         instance=post,
         initial={
+		  'author': users.get_current_user().nickname(),
           'draft': post and not post.path,
           'body_markup': post and post.body_markup or config.default_markup,
         }))
@@ -88,7 +91,9 @@ class PostHandler(BaseHandler):
   @with_post
   def post(self, post):
     form = PostForm(data=self.request.POST, instance=post,
-                    initial={'draft': post and post.published is None})
+                    initial={
+						'draft': post and post.published is None,
+						'author': users.get_current_user()})
     if form.is_valid():
       post = form.save(commit=False)
       if form.clean_data['draft']:# Draft post

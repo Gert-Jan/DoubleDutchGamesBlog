@@ -31,6 +31,7 @@ class StaticContent(db.Model):
   body = db.BlobProperty()
   content_type = db.StringProperty()
   status = db.IntegerProperty(required=True, default=200)
+  author = db.UserProperty(verbose_name=None, auto_current_user=True)
   last_modified = db.DateTimeProperty(required=True)
   etag = aetycoon.DerivedProperty(lambda x: hashlib.sha1(x.body).hexdigest())
   indexed = db.BooleanProperty(required=True, default=True)
