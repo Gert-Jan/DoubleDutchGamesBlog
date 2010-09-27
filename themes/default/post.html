@@ -3,7 +3,7 @@
 {% block body %}
   <h2>{{post.title|escape}}</h2>
     <p class="post-info">
-      Posted by {{post.author}}
+      Posted by {{ config.authors|hash:post.author }}
       {% if post.tags %}
         | Filed under
         {% for tag in post.tag_pairs %}

@@ -18,7 +18,8 @@ from google.appengine.ext.db import djangoforms
 
 class PostForm(djangoforms.ModelForm):
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'name'}))
-  author = forms.CharField(required=False, widget=forms.TextInput(attrs={'readonly':'true'}))
+  author = forms.ChoiceField(
+    choices=[(k, v) for k, v in config.authors.iteritems()])
   body = forms.CharField(widget=forms.Textarea(attrs={
       'id':'message',
       'rows': 10,
@@ -80,20 +81,22 @@ class PostHandler(BaseHandler):
 
   @with_post
   def get(self, post):
+    current_user = users.get_current_user().nickname()
     self.render_form(PostForm(
         instance=post,
         initial={
-		  'author': users.get_current_user().nickname(),
+          'author': post and post.author or current_user in config.authors and current_user or config.default_author,
           'draft': post and not post.path,
           'body_markup': post and post.body_markup or config.default_markup,
         }))
 
   @with_post
   def post(self, post):
+    current_user = users.get_current_user().nickname()
     form = PostForm(data=self.request.POST, instance=post,
                     initial={
-						'draft': post and post.published is None,
-						'author': users.get_current_user()})
+                      'draft': post and post.published is None,
+                      'author': current_user in config.authors and current_user or config.default_author})
     if form.is_valid():
       post = form.save(commit=False)
       if form.clean_data['draft']:# Draft post

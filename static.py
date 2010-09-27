@@ -15,6 +15,7 @@ import aetycoon
 import config
 import utils
 
+webapp.template.register_template_library('django_helper')
 
 HTTP_DATE_FMT = "%a, %d %b %Y %H:%M:%S GMT"
 
@@ -31,7 +32,7 @@ class StaticContent(db.Model):
   body = db.BlobProperty()
   content_type = db.StringProperty()
   status = db.IntegerProperty(required=True, default=200)
-  author = db.UserProperty(verbose_name=None, auto_current_user=True)
+  author = db.StringProperty()
   last_modified = db.DateTimeProperty(required=True)
   etag = aetycoon.DerivedProperty(lambda x: hashlib.sha1(x.body).hexdigest())
   indexed = db.BooleanProperty(required=True, default=True)

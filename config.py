@@ -5,6 +5,16 @@ blog_name_header = '<span class="title-double">Double</span><span class="title-d
 # Your name (used for copyright info)
 author_name = 'DoubleDutch Games'
 
+# Default author key
+default_author = 'doubledutchgames'
+
+# List of authors
+authors = {
+	'doubledutchgames': 'DoubleDutch Games',
+	'caspervanest':	'Cas',
+	'Stolk.GJ':	'GJ',
+}
+
 # (Optional) slogan
 slogan = 'Stories about Game Design and Game Technology'
 

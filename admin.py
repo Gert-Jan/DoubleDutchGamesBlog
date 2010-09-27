@@ -9,6 +9,7 @@ import handlers
 
 post_deploy.run_deploy_task()
 
+webapp.template.register_template_library('django_helper')
 
 application = webapp.WSGIApplication([
   (config.url_prefix + '/admin/', handlers.AdminHandler),

@@ -21,7 +21,8 @@ class BlogPost(db.Model):
   # The URL path to the blog post. Posts have a path iff they are published.
   path = db.StringProperty()
   title = db.StringProperty(required=True, indexed=False)
-  author = db.UserProperty(verbose_name=None, auto_current_user=True)
+  author = db.StringProperty(choices=set(config.authors),
+                             default=config.authors[config.default_author])
   body_markup = db.StringProperty(choices=set(markup.MARKUP_MAP),
                                   default=DEFAULT_MARKUP)
   body = db.TextProperty(required=True)
