@@ -35,13 +35,16 @@ post_path_format = '/%(year)d/%(month)02d/%(slug)s'
 # A nested list of sidebar menus, for convenience. If this isn't versatile
 # enough, you can edit themes/default/base.html instead.
 sidebars = [
+  ('DoubleDutch On', [
+    '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/group.php?gid=156721264338498" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
+  ]),
   ('Links', [
-    '<a href="http://www.tigsource.com/">TIGSource</a>',
-    '<a href="http://www.indiegames.com/">Indie Games</a>',
-	'<a href="http://www.musicbyjonathan.com/">MusicByJonathan</a>',
-	'<a href="http://www.framestate.nl/">Framestate</a>',
-	'<a href="http://www.wolfire.com/">Wolfire</a>',
-    '<a href="http://www.theoddworks.com/">The Oddworks</a>',
+    '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
+    '<a href="http://www.indiegames.com/" target="_blank">Indie Games</a>',
+	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
+	'<a href="http://www.framestate.nl/" target="_blank">Framestate</a>',
+	'<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
+    '<a href="http://www.theoddworks.com/" target="_blank">The Oddworks</a>',
   ]),
 ]
 

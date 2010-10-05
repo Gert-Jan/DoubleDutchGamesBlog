@@ -75,6 +75,13 @@ img.float-left {
   	margin: 5px 10px 10px 0px;
 }
 
+img.icon {
+	border: none;
+	padding: 0px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
 code, pre {
   	margin: 3px 0;
   	padding: 15px;
@@ -345,7 +352,7 @@ input.button {
 	list-style: none;
 	background: url(../images/dots.gif) repeat-x left bottom; 
 	padding: 7px 5px;
-	margin: 0;		
+	margin: 0;
 }
 * html body .sidemenu ul li {
 	height: 1%;
