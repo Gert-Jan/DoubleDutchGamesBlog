@@ -376,6 +376,18 @@ input.button {
 .sidemenu ul ul { margin: 0 0 0 5px; padding: 0; }
 .sidemenu ul ul li { background: none; }
 
+/* social stuff */
+.facebook-button {
+	float:right;
+	margin-top: -41px;
+	margin-right: 116px;
+}
+
+.twitter-button {
+	float:right;
+	margin-top: -40px;
+}
+
 /* featured-post */
 .featured-post {
 	padding-bottom: 15px;			
