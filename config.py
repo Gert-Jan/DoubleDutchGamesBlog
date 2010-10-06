@@ -38,13 +38,18 @@ sidebars = [
   ('DoubleDutch On', [
     '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/group.php?gid=156721264338498" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
   ]),
-  ('Links', [
-    '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
-    '<a href="http://www.indiegames.com/" target="_blank">Indie Games</a>',
+  ('Friends', [
 	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
 	'<a href="http://www.framestate.nl/" target="_blank">Framestate</a>',
-	'<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
+	'<a href="http://wwww.gerritwillemse.com/" target="_blank">Gerrit Willemse</a>',
+	'<a href="http://glow.inque.org/wp/" target="_blank">Thijs Kruithof</a>',
     '<a href="http://www.theoddworks.com/" target="_blank">The Oddworks</a>',
+	'<a href="http://ultimo.carbonmade.com/" target="_blank">Timo Visser</a>',
+  ]),
+  ('Blogroll', [
+    '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
+    '<a href="http://www.indiegames.com/" target="_blank">Indie Games</a>',
+	'<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
   ]),
 ]
 
