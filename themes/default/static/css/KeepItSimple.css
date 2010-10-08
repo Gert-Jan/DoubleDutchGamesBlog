@@ -376,16 +376,23 @@ input.button {
 .sidemenu ul ul { margin: 0 0 0 5px; padding: 0; }
 .sidemenu ul ul li { background: none; }
 
-/* social stuff */
+/* social links */
+.digg-button {
+	position: absolute;
+	margin-top: -40px;
+	left: 472px;
+}
+
 .facebook-button {
-	float:right;
-	margin-top: -41px;
-	margin-right: 116px;
+	position: absolute;
+	margin-top: -40px;
+	left: 552px;
 }
 
 .twitter-button {
-	float:right;
+	position: absolute;
 	margin-top: -40px;
+	left: 616px;
 }
 
 /* featured-post */

@@ -14,6 +14,9 @@
   {{post.rendered}}
   <p class="postmeta">
     <span class="date">{{post.published|date:config.date_format}}</span>
+    <div class="digg-button">
+      <a href="http://digg.com/submit?url={{config.host}}{{config.url_prefix}}{{post.path}}" class="DiggThisButton DiggCompact"></a>
+    </div>
     <div class="twitter-button">
       <a href="http://twitter.com/share?url={{config.host}}{{config.url_prefix}}{{post.path}}&amp;via=dd_games&amp;related=dd_games&amp;text={{post.title}}" class="twitter-share-button">Tweet</a> 
     </div>
