@@ -19,15 +19,15 @@
         <a href="{{config.url_prefix}}{{post.path}}#disqus_thread" class="readmore">Comments</a> |
       {% endif %}
       <span class="date">{{post.published|date:config.date_format}}</span>
-      <div class="digg-button">
+      <span class="digg-button">
         <a href="http://digg.com/submit?url={{config.host}}{{config.url_prefix}}{{post.path}}" class="DiggThisButton DiggCompact"></a>
-      </div>
-      <div class="twitter-button">
+      </span>
+      <span class="twitter-button">
         <a href="http://twitter.com/share?url={{config.host}}{{config.url_prefix}}{{post.path}}&amp;via=dd_games&amp;related=dd_games&amp;text={{post.title}}" class="twitter-share-button">Tweet</a> 
-      </div>
-      <div class="facebook-button"> 
+      </span>
+      <span class="facebook-button"> 
         <a name="fb_share" type="button_count" share_url="{{config.host}}{{config.url_prefix}}{{post.path}}" href="http://www.facebook.com/sharer.php">Share</a>
-      </div>
+      </span>
     </p>
   {% endfor %}
   {% if prev_page %}
