@@ -11,8 +11,8 @@ default_author = 'doubledutchgames'
 # List of authors
 authors = {
 	'doubledutchgames': 'DoubleDutch Games',
-	'caspervanest':	'Cas',
-	'Stolk.GJ':	'GJ',
+	'caspervanest': 'Cas',
+	'Stolk.GJ': 'GJ',
 }
 
 # (Optional) slogan
@@ -42,7 +42,7 @@ post_path_format = '/%(year)d/%(month)02d/%(slug)s'
 # enough, you can edit themes/default/base.html instead.
 sidebars = [
   ('DoubleDutch On', [
-    '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/group.php?gid=156721264338498" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
+    '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/pages/DoubleDutch-Games/171363252897944" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
   ]),
   ('Friends', [
 	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
