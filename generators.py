@@ -239,7 +239,7 @@ class AtomContentGenerator(ContentGenerator):
   @classmethod
   def generate_resource(cls, post, resource):
     import models
-    q = models.BlogPost.all().order('-updated')
+    q = models.BlogPost.all().order('-published')
     # Fetch the 10 most recently updated non-draft posts
     posts = list(itertools.islice((x for x in q if x.path), 10))
     now = datetime.datetime.now().replace(second=0, microsecond=0)
