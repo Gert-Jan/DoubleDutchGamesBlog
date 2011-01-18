@@ -29,6 +29,7 @@ theme = 'default'
 page_templates = {
 	'Theme.html': 'Theme',
 	'Simple.html': 'Simple',
+	'Empty.html': 'Empty',
 }
 
 # Defines the URL organization to use for blog postings. Valid substitutions:
