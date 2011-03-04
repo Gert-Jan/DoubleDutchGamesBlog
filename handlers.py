@@ -4,7 +4,6 @@ import os
 
 from google.appengine.ext import deferred
 from google.appengine.ext import webapp
-from google.appengine.api import users
 
 import config
 import markup
@@ -18,8 +17,6 @@ from google.appengine.ext.db import djangoforms
 
 class PostForm(djangoforms.ModelForm):
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'name'}))
-  author = forms.ChoiceField(
-    choices=[(k, v) for k, v in config.authors.iteritems()])
   body = forms.CharField(widget=forms.Textarea(attrs={
       'id':'message',
       'rows': 10,
@@ -30,7 +27,7 @@ class PostForm(djangoforms.ModelForm):
   draft = forms.BooleanField(required=False)
   class Meta:
     model = models.BlogPost
-    fields = [ 'title', 'author', 'body', 'tags' ]
+    fields = [ 'title', 'body', 'tags' ]
 
 
 def with_post(fun):
@@ -52,6 +49,7 @@ class BaseHandler(webapp.RequestHandler):
     template_vals.update({
         'path': self.request.path,
         'handler_class': self.__class__.__name__,
+        'is_admin': True,
     })
     template_name = os.path.join("admin", template_name)
     self.response.out.write(utils.render_template(template_name, template_vals,
@@ -64,7 +62,6 @@ class AdminHandler(BaseHandler):
     count = int(self.request.get('count', 20))
     posts = models.BlogPost.all().order('-published').fetch(count, offset)
     template_vals = {
-        'is_admin': True,
         'offset': offset,
         'count': count,
         'last_post': offset + len(posts) - 1,
@@ -81,22 +78,17 @@ class PostHandler(BaseHandler):
 
   @with_post
   def get(self, post):
-    current_user = users.get_current_user().nickname()
     self.render_form(PostForm(
         instance=post,
         initial={
-          'author': post and post.author or current_user in config.authors and current_user or config.default_author,
           'draft': post and not post.path,
           'body_markup': post and post.body_markup or config.default_markup,
         }))
 
   @with_post
   def post(self, post):
-    current_user = users.get_current_user().nickname()
     form = PostForm(data=self.request.POST, instance=post,
-                    initial={
-                      'draft': post and post.published is None,
-                      'author': current_user in config.authors and current_user or config.default_author})
+                    initial={'draft': post and post.published is None})
     if form.is_valid():
       post = form.save(commit=False)
       if form.clean_data['draft']:# Draft post
@@ -132,24 +124,25 @@ class PreviewHandler(BaseHandler):
     # datetime.max and a "real" date looks better.
     if post.published == datetime.datetime.max:
       post.published = datetime.datetime.now()
-    self.response.out.write(utils.render_template('post.html',
-                                                  {'post': post}))
+    self.response.out.write(utils.render_template('post.html', {
+        'post': post,
+        'is_admin': True}))
+
 
 class RegenerateHandler(BaseHandler):
   def post(self):
-    regen = post_deploy.PostRegenerator()
-    deferred.defer(regen.regenerate)
-    deferred.defer(post_deploy.post_deploy, post_deploy.BLOGGART_VERSION)
+    deferred.defer(post_deploy.PostRegenerator().regenerate)
+    deferred.defer(post_deploy.PageRegenerator().regenerate)
+    deferred.defer(post_deploy.try_post_deploy, force=True)
     self.render_to_response("regenerating.html")
 
 
 class PageForm(djangoforms.ModelForm):
   path = forms.RegexField(
     widget=forms.TextInput(attrs={'id':'path'}), 
-    regex='(/[a-zA-Z0-9].*)')
+    regex='(/[a-zA-Z0-9/]+)')
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'title'}))
-  template = forms.ChoiceField(
-    choices=[(k, v) for k, v in config.page_templates.iteritems()])
+  template = forms.ChoiceField(choices=config.page_templates.items())
   body = forms.CharField(widget=forms.Textarea(attrs={
       'id':'body',
       'rows': 10,
@@ -165,13 +158,13 @@ class PageForm(djangoforms.ModelForm):
       raise forms.ValidationError("The given path already exists.")
     return data
 
+
 class PageAdminHandler(BaseHandler):
   def get(self):
     offset = int(self.request.get('start', 0))
     count = int(self.request.get('count', 20))
     pages = models.Page.all().order('-updated').fetch(count, offset)
     template_vals = {
-        'is_admin': True,
         'offset': offset,
         'count': count,
         'prev_offset': max(0, offset - count),
@@ -180,6 +173,7 @@ class PageAdminHandler(BaseHandler):
         'pages': pages,
     }
     self.render_to_response("indexpage.html", template_vals)
+
 
 def with_page(fun):
   def decorate(self, page_key=None):
@@ -193,6 +187,7 @@ def with_page(fun):
         return
     fun(self, page)
   return decorate
+
 
 class PageHandler(BaseHandler):
   def render_form(self, form):
@@ -219,30 +214,19 @@ class PageHandler(BaseHandler):
       if page:
         oldpath = page.path
       page = form.save(commit=False)
-      if page.path:
-        page.updated = datetime.datetime.now()
-        if not page.created:
-          page.created = page.updated
-        page.publish()
-        # path edited, remove old stuff
-        if page.path != oldpath:
-          oldpage = models.Page.get_by_key_name(oldpath)
-          oldpage.remove()
-        self.render_to_response("publishedpage.html", {'page': page})
-      else:
-        self.render_form(form)
+      page.updated = datetime.datetime.now()
+      page.publish()
+      # path edited, remove old stuff
+      if page.path != oldpath:
+        oldpage = models.Page.get_by_key_name(oldpath)
+        oldpage.remove()
+      self.render_to_response("publishedpage.html", {'page': page})
     else:
       self.render_form(form)
+
 
 class PageDeleteHandler(BaseHandler):
   @with_page
   def post(self, page):
     page.remove()
     self.render_to_response("deletedpage.html", None)
-
-class PageRegenerateHandler(BaseHandler):
-  def post(self):
-    regen = post_deploy.PageRegenerator()
-    deferred.defer(regen.regenerate)
-    deferred.defer(post_deploy.post_deploy, post_deploy.BLOGGART_VERSION)
-    self.render_to_response("regeneratingpage.html")
