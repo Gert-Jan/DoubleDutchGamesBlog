@@ -1,0 +1,192 @@
+body {
+margin: 0;
+padding: 0;
+color: #ffffff;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12pt;
+background-color: #001f49;
+}
+
+h1 {
+display:none;
+}
+
+h2 {
+margin: 0;
+padding: 0 0 5px 0;
+line-height: 16pt;
+font-size: 16pt;
+}
+
+p {
+margin: 0 0 20px 0;
+padding: 0;
+}
+
+a {
+color: #30a0cd;
+}
+
+input {
+border: 1px solid #30a0cd;
+background-color: #0b0e1c;
+color: #ffffff;
+}
+
+form {
+float: right;
+}
+
+.date {
+display: block;
+margin: -20px 0 0 0;
+text-align: right;
+font-size: 10pt;
+font-style: italic;
+}
+
+#container {
+width: 1136px; 
+margin: 0 auto;
+}
+
+#head {
+width: 1136px;
+height: 804px;
+background-image: url('./img/header.png');
+}
+
+#main {
+width: 1136px;
+}
+
+#footer {
+width: 100%;
+height: 63px;
+margin-top: 27px;
+border-top: 1px solid #30a0cd;
+background-color: #001f49;
+}
+
+#inner-footer {
+width: 900px;
+height: 63px;
+margin: 0 auto;
+}
+
+#game {
+display: block;
+position: relative;
+width: 800px;
+height: 600px;
+left: 159px;
+top : 60px;
+}
+
+#left-column {
+float: left;
+margin-left: 102px;
+width: 444px;
+}
+
+#right-column {
+float: left;
+margin-left: 27px;
+width: 444px;
+}
+
+#twitter-button {
+display: block;
+position: relative;
+width: 54px;
+height: 42px;
+left: 735px;
+top : 88px;
+background-image: url('./img/button_twitter_up.gif');
+}
+
+#twitter-button:hover {
+background-image: url('./img/button_twitter_down.gif');
+}
+
+#facebook-button {
+display: block;
+position: relative;
+width: 57px;
+height: 38px;
+left: 801px;
+top: 65px;
+background-image: url('./img/button_facebook_up.gif');
+}
+
+#facebook-button:hover {
+background-image: url('./img/button_facebook_down.gif');
+}
+
+#rss-button {
+display: block;
+position: relative;
+width: 58px;
+height: 38px;
+left: 861px;
+top: 51px;
+background-image: url('./img/button_rss_up.gif');
+}
+
+#rss-button:hover {
+background-image: url('./img/button_rss_down.gif');
+}
+
+.news-header {
+float: left;
+width: 444px;
+height: 82px;
+background-image: url('./img/header_news.png');
+}
+
+.panel-top {
+float:left;
+width: 384px;
+padding: 10px 30px 10px 30px;
+background-color: #0b0e1c;
+background-image: url('./img/panel_background.png');
+background-repeat: repeat-y;
+border-bottom: 5px solid #ffffff;
+}
+
+.panel {
+float:left;
+width: 384px;
+padding: 30px 30px 10px 30px;
+margin-top: 27px;
+background-color: #0b0e1c;
+background-image: url('./img/panel_background.png');
+background-repeat: repeat-y;
+border-top: 5px solid #ffffff;
+border-bottom: 5px solid #ffffff;"
+}
+
+.rewards-header {
+float: left;
+width: 444px;
+height: 82px;
+background-image: url('./img/header_rewards.png');
+}
+
+.copyright {
+float: left;
+line-height: 63px;
+font-size: 10pt;
+color: #30a0cd;
+}
+
+.copyright a {
+color: #30a0cd;
+}
+
+.doubledutchlogo {
+float: right;
+width: 280px;
+height: 63px;
+background-image: url('./img/doubledutchlogo.png');
+}

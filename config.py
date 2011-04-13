@@ -30,6 +30,7 @@ page_templates = {
 	'Theme.html': 'Theme',
 	'Simple.html': 'Simple',
 	'Empty.html': 'Empty',
+	'SpeedRunner.html': 'SpeedRunner',
 }
 
 # Defines the URL organization to use for blog postings. Valid substitutions:
