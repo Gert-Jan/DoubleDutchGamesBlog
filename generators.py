@@ -276,4 +276,4 @@ class PageContentGenerator(ContentGenerator):
         'page': page,
       }
       rendered = utils.render_template('pages/%s' % (page.template,), template_vals)
-      static.set(page.path, rendered, config.html_mime_type)
+      static.set(page.path, rendered, config.html_mime_type, indexed=page.indexed)

@@ -124,7 +124,7 @@ class Page(db.Model):
   body = db.TextProperty(required=True)
   created = db.DateTimeProperty(required=True, auto_now_add=True)
   updated = db.DateTimeProperty()
-
+  indexed = db.BooleanProperty(default=True)
   @property
   def rendered(self):
     # Returns the rendered body.

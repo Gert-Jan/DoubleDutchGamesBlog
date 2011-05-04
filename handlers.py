@@ -155,9 +155,10 @@ class PageForm(djangoforms.ModelForm):
       'id':'body',
       'rows': 10,
       'cols': 20}))
+  indexed = forms.BooleanField(required=False)
   class Meta:
     model = models.Page
-    fields = [ 'path', 'title', 'template', 'body' ]
+    fields = [ 'path', 'title', 'template', 'body', 'indexed' ]
 
   def clean_path(self):
     data = self._cleaned_data()['path']
@@ -207,6 +208,7 @@ class PageHandler(BaseHandler):
         instance=page,
         initial={
           'path': page and page.path or '/',
+          'indexed': True,
         }))
 
   @with_page
