@@ -32,6 +32,9 @@ handlers:
   script: admin.py
   login: admin
 
+- url: /speedrunner/leaderboard/proxy.*
+  script: speedrunner/leaderboard/proxy.py
+
 - url: /static/([^/]+)/(.*)
   static_files: themes/\1/static/\2
   upload: themes/[^/]+/static/.*

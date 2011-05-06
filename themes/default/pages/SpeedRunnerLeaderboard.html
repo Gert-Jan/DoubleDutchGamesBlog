@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>SpeedRunner Leaderboard</title>
+	<link rel="shortcut icon" href="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/img/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/leaderboard.css" />
+	<script type="text/javascript">
+		statics_url = "{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard";
+	</script>
+	<script type="text/javascript" src="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/leaderboard.js"></script>
+	<script type="text/javascript" src="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/city.js"></script>
+	<!--[if IE]>
+		<link href="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunnerLeaderboard/leaderboard-ie.css" rel="stylesheet" type="text/css" />
+	<![endif]--> 
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>SpeedRunner Leaderboard</h1>
+			<div id="speedrunner-logo"><h1>SpeedRunner</h1></div>
+			<a href="http://www.maxgames.com/speedrunner" target="_blank"><div id="maxgames-logo"><h1>MaxGames.com</h1></div></a>
+			<a id="twitter-button" href="http://www.doubledutchgames.com/twitter" target="_blank"></a>
+			<a id="facebook-button" href="http://www.doubledutchgames.com/facebook" target="_blank"></a>
+		</div>
+		<div id="main">
+			<div id="level-select" onMouseOver="mouseOver()" onMouseOut="mouseOut()">
+				<div id="city-sky"></div>
+				<div id="city-background"></div>
+				<div id="city-foreground"></div>
+				<div id="city-levels"></div>
+			</div>
+			<div id="mode-panel">
+				<h2>Leaderboard of the last 30 days</h2>
+				<ul>
+					<li><a id="modeToday" onclick="modeToday()">today</a></li>
+					<li><a id="mode7Days" onclick="mode7Days()">last 7 days</a></li>
+					<li><a id="mode30Days" onclick="mode30Days()">last 30 days</a></li>
+					<li><a id="modeAllTime" onclick="modeAllTime()">all time</a></li>
+				</ul>
+			</div>
+			<div id="score-panel">
+				<table id="score-table">
+					<tr>
+						<th></th>
+						<th>Name</th>
+						<th>Date</th>
+						<th>Medal</th>
+						<th class="score">Score</th>
+						<th>Share</th>
+					</tr>
+				</table>
+				<div id="loading">Loading...</div>
+				<div id="page-numbers">Rank 1 to 50</div>
+				<ul>
+					<li><a id="previousPage" onclick="previousPage()"><</a></li>
+					<li><a id="nextPage" onclick="nextPage()">></a></li>
+				</ul>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		<div id="main-bottom"></div>
+	</div>
+</body>
+</html>
