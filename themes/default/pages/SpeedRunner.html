@@ -3,6 +3,17 @@
 <head>
 	<title>SpeedRunner - Official Website - DoubleDutch Games</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunner/style.css" />
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-18419693-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 	<script type="text/javascript" src="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunner/reward.js"></script>
 	<script type="text/javascript" src="{{config.url_prefix}}/static/{{config.theme}}/pages/SpeedRunner/flash.js"></script>
 </head>
@@ -22,7 +33,7 @@
 					<param name="bgcolor" value="#000000" />
 					<embed src="http://images.doubledutchgames.com/SpeedRunner.swf" quality="high" bgcolor="#000000" width="800" height="600" name="SpeedRunner" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
 				</object>
-			</div>				
+			</div>
 		</div>
 		<div id="main">
 			<div id="left-column">
@@ -36,7 +47,7 @@
 				</div>
 				<div class="panel-top">
 					<div id="rewards">
-						<p>Get a gold medal on the first 12 levels and recieve a reward code. Fill this code below to collect your prizes!</p>
+						<p>Get gold medals on all story levels and receive a secret password. Use that password here to collect your reward!</p>
 						<form method="POST" name="reward_form" action="" 
 							onSubmit="return false" 
 							onKeyPress="return disableEnterKey(event)">
@@ -49,7 +60,7 @@
 				</div>
 				<div class="panel">
 					<h2>Newsletter</h2>
-					<p>We are planning to release a version with new exiting levels, HD graphics and multiplayer to different platforms. Sign up for the newsletter if you would like to stay informed about developments involving SpeedRunner and DoubleDutch Games!</p>
+					<p>We're currently working a HD version of speedrunner, to release on Xbox Live Indie Games. This version will feature exciting new levels, HD graphics and multiplayer! Sign up for the newsletter if you'd like to stay informed about developments involving SpeedRunner and DoubleDutch Games!</p>
 					<form method="POST" name="newsletter_form" action="/newslettersubmit">
 							Email:  
 							<input name="email" type="text"></input>
@@ -68,15 +79,5 @@
 			<div class="doubledutchlogo"></div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		try {
-			var pageTracker = _gat._getTracker("UA-18419693-1");
-			pageTracker._trackPageview();
-		} catch(err) {}
-	</script>
 </body>
 </html>
