@@ -208,7 +208,7 @@ class PageHandler(BaseHandler):
         instance=page,
         initial={
           'path': page and page.path or '/',
-          'indexed': True,
+          'indexed': (page and page.indexed) or not page,
         }))
 
   @with_page
