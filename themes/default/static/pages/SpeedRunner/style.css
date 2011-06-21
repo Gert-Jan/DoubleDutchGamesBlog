@@ -190,3 +190,19 @@ width: 280px;
 height: 63px;
 background-image: url('./img/doubledutchlogo.png');
 }
+
+.facebook-like-button
+{
+margin-left: -65px;
+float: left;
+margin-top: 5px;
+}
+
+.twitter-share-button
+{
+width: 55px;
+height: 62px;
+float: left;
+margin-left: -70px;
+margin-top: 73px;
+}
