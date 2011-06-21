@@ -43,12 +43,17 @@
 </head>
 <body>
 	<div id="header-wrap"><div id="header" class="container_16">
-		<h1 id="logo-text"><a href="{{config.url_prefix}}/" title="">{{config.blog_name_header}}</a></h1>
-		<p id="intro">{{config.slogan}}</p>
-		<div  id="nav">
+		<a href="{{config.url_prefix}}/" title="">
+		<div id="title">
+			<h1 id="logo-text">{{config.blog_name_header}}</h1>
+			<p id="intro">{{config.slogan}}</p>
+		</div>
+		</a>
+		<div id="nav">
 			<ul>
-				<li{% ifequal generator_class "IndexContentGenerator" %} id="current"{% endifequal %}><a href="{{config.url_prefix}}/">Home</a></li>
-        {% block menu %}{% endblock %}
+				<li{% ifequal generator_class "IndexContentGenerator" %} id="current"{% endifequal %}><a href="{{config.url_prefix}}/">Blog</a></li>
+				<li><a href="/speedrunner"><img src="{{config.url_prefix}}/static/{{config.theme}}/images/speedrunner-head.png" style="margin: 7px 5px 0 -5px">SpeedRunner</a></li>
+				{% block menu %}{% endblock %}
 			</ul>
 		</div>
     <form id="quick-search" action="{{config.url_prefix}}/search" method="get">

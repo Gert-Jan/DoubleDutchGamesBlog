@@ -1,6 +1,6 @@
 # Name of the blog
 blog_name = 'DoubleDutch Games'
-blog_name_header = '<span class="title-double">Double</span><span class="title-dutch">Dutch</span> <span class="title-games">Games</span>'
+blog_name_header = 'DoubleDutch Games'
 
 # Your name (used for copyright info)
 author_name = 'DoubleDutch Games'
@@ -46,6 +46,7 @@ post_path_format = '/%(year)d/%(month)02d/%(slug)s'
 sidebars = [
   ('DoubleDutch On', [
     '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/pages/DoubleDutch-Games/171363252897944" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
+    '<a href="http://www.doubledutchgames.com/contact/">Contact us</a>',
   ]),
   ('Friends', [
 	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
