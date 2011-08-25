@@ -391,24 +391,22 @@ input.button {
 
 /* social links */
 .digg-button {
-	display: inline;
-	position: relative;
-	left: 48px;
-	top: 2px;
+	float: right;
+	margin-right: 8px;
 }
 
 .twitter-button {
-	display: inline;
-	position: relative;
-	left: 54px;
-	top: 3px;
+	float: right;
+}
+
+.google-button {
+	float: right;
 }
 
 .facebook-button {
-	display: inline;
-	position: relative;
-	left: 40px;
-	bottom: 4px;
+	float: right;
+	top: -1px;
+	margin-right: 8px;
 }
 
 .fb_share_count_nub_right {
