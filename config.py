@@ -50,11 +50,11 @@ sidebars = [
   ]),
   ('Friends', [
 	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
-	'<a href="http://www.framestate.nl/" target="_blank">Framestate</a>',
 	'<a href="http://wwww.gerritwillemse.com/" target="_blank">Gerrit Willemse</a>',
+	'<a href="http://www.robinkeijzer.com/" target="_blank">Robin Keijzer</a>',
 	'<a href="http://glow.inque.org/wp/" target="_blank">Thijs Kruithof</a>',
-    '<a href="http://www.theoddworks.com/" target="_blank">The Oddworks</a>',
-	'<a href="http://ultimo.carbonmade.com/" target="_blank">Timo Visser</a>',
+    '<a href="http://www.jaywalkersinteractive.com/" target="_blank">Jaywalkers Interactive</a>',
+	'<a href="https://www.facebook.com/pages/Ultimo-Indie-Games/162579680465185" target="_blank">Timo Visser</a>',
   ]),
   ('Blogroll', [
     '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
