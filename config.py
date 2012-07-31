@@ -49,18 +49,23 @@ sidebars = [
     '<a href="http://www.doubledutchgames.com/contact/">Contact us</a>',
   ]),
   ('Friends', [
-	'<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
-	'<a href="http://wwww.gerritwillemse.com/" target="_blank">Gerrit Willemse</a>',
-	'<a href="http://www.robinkeijzer.com/" target="_blank">Robin Keijzer</a>',
-	'<a href="http://glow.inque.org/wp/" target="_blank">Thijs Kruithof</a>',
+    '<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
+    '<a href="http://wwww.gerritwillemse.com/" target="_blank">Gerrit Willemse</a>',
+    '<a href="http://www.robinkeijzer.com/" target="_blank">Robin Keijzer</a>',
+    '<a href="http://glow.inque.org/wp/" target="_blank">Thijs Kruithof</a>',
     '<a href="http://www.jaywalkersinteractive.com/" target="_blank">Jaywalkers Interactive</a>',
-	'<a href="https://www.facebook.com/pages/Ultimo-Indie-Games/162579680465185" target="_blank">Timo Visser</a>',
+    '<a href="https://www.facebook.com/pages/Ultimo-Indie-Games/162579680465185" target="_blank">Timo Visser</a>',
   ]),
   ('Blogroll', [
     '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
     '<a href="http://www.indiegames.com/" target="_blank">Indie Games</a>',
-	'<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
+    '<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
   ]),
+  ('Presskit', [
+    '<a href="http://press.doubledutchgames.com">DoubleDutch Games</a>',
+    '<a href="http://press.doubledutchgames.com/sheet.php?p=Speedrunner_HD">Speedrunner HD</a>',
+    '<a href="http://press.doubledutchgames.com/sheet.php?p=Chaos_Battle">Chaos Battle</a>',
+   ]),
 ]
 
 # Number of entries per page in indexes.
