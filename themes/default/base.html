@@ -23,22 +23,16 @@
   <!-- Include the Google Friend Connect javascript library. -->
   <script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
   {% endif %}
-  <script type="text/javascript">
-    (function() {
-      var social_scripts=[
-        "http://static.ak.fbcdn.net/connect.php/js/FB.Share",
-        "http://platform.twitter.com/widgets.js",
-        "http://widgets.digg.com/buttons.js"]; 
-      for ( var index in social_scripts )
-      {
-        var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = social_scripts[index];
-        s1.parentNode.insertBefore(s, s1);
-      }
-    })();
-  </script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-18419693-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
   {% block head %}{% endblock %}
 </head>
 <body>
@@ -52,7 +46,8 @@
 		<div id="nav">
 			<ul>
 				<li{% ifequal generator_class "IndexContentGenerator" %} id="current"{% endifequal %}><a href="{{config.url_prefix}}/">Blog</a></li>
-				<li><a href="/speedrunner"><img src="{{config.url_prefix}}/static/{{config.theme}}/images/speedrunner-head.png" style="margin: 7px 5px 0 -5px">SpeedRunner</a></li>
+				<li><a href="/speedrunnerhd"><img src="{{config.url_prefix}}/static/{{config.theme}}/images/speedrunner-head.png" style="margin: 7px 5px 0 -5px">Speedrunner HD</a></li>
+				<li><a href="/chaosbattle"><img src="{{config.url_prefix}}/static/{{config.theme}}/images/chaosbattle-head.png" style="margin: 7px 5px 0 -5px">Chaos Battle</a></li>
 				{% block menu %}{% endblock %}
 			</ul>
 		</div>

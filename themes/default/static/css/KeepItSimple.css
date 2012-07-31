@@ -389,33 +389,54 @@ input.button {
 .sidemenu ul ul { margin: 0 0 0 5px; padding: 0; }
 .sidemenu ul ul li { background: none; }
 
+.sidebar {
+	margin: -1px 5px 0px 5px;
+	padding-top: 2px;
+	float: left;
+	border: 1px solid #EBEBEB;
+	background: #F8F8F8;
+	width: 80px;
+}
+.sidebar img {
+	border: none;
+	padding: 0;
+}
+.sidebar p {
+	padding: 0;
+	width 65px;
+}
 /* social links */
-.digg-button {
-	float: right;
-	margin-right: 8px;
+
+.author-image {
+	width: 65px;
+}
+.facebook-like-button
+{
+	margin-left: 17px;
+	float: left;
+	margin-top: 0px;
 }
 
-.twitter-button {
-	float: right;
+.google-plus-button
+{
+	margin-left: 14px;
+	float: left;
+	margin-top: 0px;
 }
 
-.google-button {
-	float: right;
-}
-
-.facebook-button {
-	float: right;
-	top: -1px;
-	margin-right: 8px;
-}
-
-.fb_share_count_nub_right {
-	top: 8px;
+.twitter-share-button
+{
+	width: 55px;
+	height: 62px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 5px;
 }
 
 /* featured-post */
 .featured-post {
-	padding-bottom: 15px;			
+	padding-bottom: 15px;
 }
 .featured-post h4 {
 	padding: 0;
@@ -439,7 +460,7 @@ input.button {
 #footer-wrapper {
 	clear: both;
 	margin: 0 auto;
-	text-align: left;			
+	text-align: left;
 }
 #footer-wrapper h3 {
 	color: #444;
@@ -491,8 +512,8 @@ input.button {
 #footer-content {
 	float: left;	
 	width: 100%;	
-	padding: 0 0 35px 0;				
-	margin: 10px 0 0 5px;			
+	padding: 0 0 35px 0;
+	margin: 10px 0 0 5px;
 }
 
 /* footer-bottom */
@@ -534,7 +555,7 @@ p.thumbs{ padding: 10px 0 0 10px; }
 	padding: 8px;
 	margin: 5px;
 	background: #fafafa;
-   border: 1px solid #ddd;	
+	order: 1px solid #ddd;	
 }
 .thumbs img:hover	{
 	border: 1px solid #D2D2D2;
