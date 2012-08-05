@@ -1,0 +1,28 @@
+#head {
+width: 1136px;
+height: 804px;
+background-image: url('./img/header2.png');
+}
+
+#play-web-game-button{
+display: block;
+float:right;
+width: 156px;
+height: 145px;
+background-image: url('./img/web_game_button.png');
+margin-top: 42px;
+margin-right: 15px;
+}
+
+#store-link{
+display: block;
+float: left;
+width: 800px;
+height: 130px;
+margin-top: 65px;
+margin-left: 160px;
+}
+
+#game {
+height: 480px;
+}
