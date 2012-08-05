@@ -31,6 +31,7 @@ page_templates = {
 	'Simple.html': 'Simple',
 	'Empty.html': 'Empty',
 	'SpeedRunner.html': 'SpeedRunner',
+	'SpeedRunnerHD.html': 'SpeedRunnerHD',
 	'SpeedRunnerLeaderboard.html': 'SpeedRunner Leaderboard',
 }
 
