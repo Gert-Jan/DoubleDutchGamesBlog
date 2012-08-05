@@ -192,7 +192,7 @@ function addRow(xml, aRank)
 	}
 	var row = '<tr class="' + color + '"><td class="rank">' + aRank + '</td>';
 	row += '<td class="name">' + tempUser + '</td>';
-	row += '<td class="date">' + xml.find('rdate').text() + '</td>';
+	row += '<td class="date">' + xml.find('sdate').text() + '</td>';
 	var medal = "bronze";
 	if (tempScore > selectedLevel.gold)
 		medal = "gold";
