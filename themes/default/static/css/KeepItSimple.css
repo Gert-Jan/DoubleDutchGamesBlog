@@ -70,10 +70,10 @@ img {
 	margin: 4px 8px;
 }
 img.float-right {
-  	margin: 5px 0px 10px 10px;  
+	margin: 5px 0px 10px 10px;  
 }
 img.float-left {
-  	margin: 5px 10px 10px 0px;
+	margin: 5px 10px 10px 0px;
 }
 
 img.icon {
@@ -81,6 +81,10 @@ img.icon {
 	padding: 0px;
 	vertical-align: middle;
 	margin-right: 5px;
+}
+.dsq-avatar img{
+	padding: 0px;
+	margin: 0px;
 }
 
 code, pre {
