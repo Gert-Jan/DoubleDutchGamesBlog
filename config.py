@@ -64,8 +64,8 @@ sidebars = [
   ]),
   ('Presskit', [
     '<a href="http://press.doubledutchgames.com">DoubleDutch Games</a>',
-    '<a href="http://press.doubledutchgames.com/sheet.php?p=Speedrunner_HD">Speedrunner HD</a>',
-    '<a href="http://press.doubledutchgames.com/sheet.php?p=Chaos_Battle">Chaos Battle</a>',
+    '<a href="http://tinybuild.com/speedrunners">Speedrunners</a>',
+    '<a href="http://www.doubledutchgames.com/321tap">321Tap</a>',
    ]),
 ]
 
