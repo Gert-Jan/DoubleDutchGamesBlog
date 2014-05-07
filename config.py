@@ -65,7 +65,7 @@ sidebars = [
   ('Presskit', [
     '<a href="http://press.doubledutchgames.com">DoubleDutch Games</a>',
     '<a href="http://tinybuild.com/speedrunners">Speedrunners</a>',
-    '<a href="http://www.doubledutchgames.com/321tap">321Tap</a>',
+    '<a href="http://www.doubledutchgames.com/321tap/">321Tap</a>',
    ]),
 ]
 
