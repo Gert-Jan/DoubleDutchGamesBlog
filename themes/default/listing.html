@@ -17,7 +17,7 @@
         {% endfor %}
       {% endif %}
     </p>
-    {{post.summary}}
+    {% autoescape off %}{{post.summary}}{% endautoescape %}
     <p>
       <a href="{{config.url_prefix}}{{post.path}}" class="readmore">Read more...</a>
     </p>

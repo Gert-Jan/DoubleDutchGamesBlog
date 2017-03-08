@@ -44,7 +44,7 @@
 				<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="dd_games">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 				<div class="news-header"></div>
 				<div class="panel-top">
-					{{page.body}}
+					{% autoescape off %}{{page.body}}{% endautoescape %}
 				</div>
 			</div>
 			<div id="right-column">

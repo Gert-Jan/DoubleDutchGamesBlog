@@ -29,7 +29,7 @@
         {% endfor %}
       {% endif %}
     </p>
-  {{post.rendered}}
+  {% autoescape off %}{{post.rendered}}{% endautoescape %}
   <p class="postmeta">
     <span class="date">{{post.published|date:config.date_format}}</span>
   </p>
