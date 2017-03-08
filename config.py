@@ -49,18 +49,11 @@ sidebars = [
     '<a href="http://www.twitter.com/dd_games" alt="Twitter" target="_blank"><img src="/static/default/images/twitter_icon.gif" class="icon"></a><a href="http://www.facebook.com/pages/DoubleDutch-Games/171363252897944" alt="Facebook" target="_blank"><img src="/static/default/images/facebook_icon.gif" class="icon"></a><a href="/feeds/atom.xml" alt="RSS"  target="_blank"><img src="/static/default/images/rss_icon.gif" class="icon"></a>',
     '<a href="http://www.doubledutchgames.com/contact/">Contact us</a>',
   ]),
-  ('Friends', [
-    '<a href="http://www.musicbyjonathan.com/" target="_blank">MusicByJonathan</a>',
-    '<a href="http://wwww.gerritwillemse.com/" target="_blank">Gerrit Willemse</a>',
-    '<a href="http://www.robinkeijzer.com/" target="_blank">Robin Keijzer</a>',
-    '<a href="http://glow.inque.org/wp/" target="_blank">Thijs Kruithof</a>',
-    '<a href="http://www.jaywalkersinteractive.com/" target="_blank">Jaywalkers Interactive</a>',
-    '<a href="https://www.facebook.com/pages/Ultimo-Indie-Games/162579680465185" target="_blank">Timo Visser</a>',
-  ]),
-  ('Blogroll', [
-    '<a href="http://www.tigsource.com/" target="_blank">TIGSource</a>',
-    '<a href="http://www.indiegames.com/" target="_blank">Indie Games</a>',
-    '<a href="http://www.wolfire.com/" target="_blank">Wolfire</a>',
+  ('Games', [
+    '<a href="http://store.steampowered.com/app/207140/" target="_blank">SpeedRunners</a>',
+    '<a href="https://marketplace.xbox.com/en-US/Product/SpeedRunner-HD/66acd000-77fe-1000-9115-d8025855094c" target="_blank">SpeedRunner HD</a>',
+    '<a href="http://www.doubledutchgames.com/speedrunner" target="_blank">SpeedRunner</a>',
+    '<a href="https://play.google.com/store/apps/details?id=com.doubledutchgames.tap321" target="_blank">321Tap</a>',
   ]),
   ('Presskit', [
     '<a href="http://press.doubledutchgames.com">DoubleDutch Games</a>',
