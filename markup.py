@@ -27,7 +27,6 @@ import utils
 
 # Fix sys.path
 import fix_path
-fix_path.fix_sys_path()
 
 # Import markup module from lib/
 import markdown

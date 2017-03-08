@@ -5,11 +5,11 @@
     <h2><a href="{{config.url_prefix}}{{post.path}}">{{post.title|escape}}</a></h2>
     <div class="sidebar">
       <div class="author-image">
-        <img src="http://images.doubledutchgames.com/blog/Author/{{ config.authors|hash:post.author }}.png" width="65px" height="65px"/>
+        <img src="http://images.doubledutchgames.com/blog/Author/{{ post.author_name }}.png" width="65px" height="65px"/>
       </div>
     </div>
     <p class="post-info">
-      Posted by {{ config.authors|hash:post.author }}
+      Posted by {{ post.author_name }}
       {% if post.tags %}
         | Filed under
         {% for tag in post.tag_pairs %}

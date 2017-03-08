@@ -1,6 +1,4 @@
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.dist import use_library
 
 import fix_path
 import config
@@ -8,10 +6,6 @@ import post_deploy
 import handlers
 
 post_deploy.run_deploy_task()
-
-use_library('django', '0.96')
-
-webapp.template.register_template_library('django_helper')
 
 application = webapp.WSGIApplication([
   (config.url_prefix + '/admin/', handlers.AdminHandler),
@@ -26,12 +20,3 @@ application = webapp.WSGIApplication([
   (config.url_prefix + '/admin/page/delete/(/.*)', handlers.PageDeleteHandler),
   (config.url_prefix + '/admin/page/(/.*)', handlers.PageHandler),
 ])
-
-
-def main():
-  fix_path.fix_sys_path()
-  run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-  main()

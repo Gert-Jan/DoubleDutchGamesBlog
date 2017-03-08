@@ -1,6 +1,7 @@
 application: doubledutchgamesblog
 version: live
-runtime: python
+runtime: python27
+threadsafe: false
 api_version: 1
 
 skip_files: |
@@ -25,11 +26,11 @@ handlers:
   login: admin
 
 - url: /_ah/queue/deferred
-  script: deferred.py
+  script: google.appengine.ext.deferred.application
   login: admin
 
 - url: /admin/.*
-  script: admin.py
+  script: admin.application
   login: admin
 
 - url: /speedrunner/leaderboard/proxy.*
@@ -40,4 +41,12 @@ handlers:
   upload: themes/[^/]+/static/.*
 
 - url: /.*
-  script: static.py
+  script: static.application
+
+libraries:
+- name: django
+  version: "1.2"
+
+# https://code.google.com/p/googleappengine/issues/detail?id=8976
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'settings'

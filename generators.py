@@ -110,7 +110,7 @@ class PostContentGenerator(ContentGenerator):
     if next is not None:
       template_vals['next']=next
     rendered = utils.render_template("post.html", template_vals)
-    static.set(post.path, rendered, config.html_mime_type)
+    static.set(post.path, rendered.encode('utf-8'), config.html_mime_type)
 generator_list.append(PostContentGenerator)
 
 class PostPrevNextContentGenerator(PostContentGenerator):
@@ -137,7 +137,7 @@ class PostPrevNextContentGenerator(PostContentGenerator):
     if next is not None:
      template_vals['next']=next
     rendered = utils.render_template("post.html", template_vals)
-    static.set(post.path, rendered, config.html_mime_type)
+    static.set(post.path, rendered.encode('utf-8'), config.html_mime_type)
 generator_list.append(PostPrevNextContentGenerator)
 
 class ListingContentGenerator(ContentGenerator):
@@ -187,9 +187,9 @@ class ListingContentGenerator(ContentGenerator):
     rendered = utils.render_template("listing.html", template_vals)
 
     path_args['pagenum'] = pagenum
-    static.set(cls.path % path_args, rendered, config.html_mime_type)
+    static.set(cls.path % path_args, rendered.encode('utf-8'), config.html_mime_type)
     if pagenum == 1:
-      static.set(cls.first_page_path % path_args, rendered,
+      static.set(cls.first_page_path % path_args, rendered.encode('utf-8'),
                  config.html_mime_type)
 
     if more_posts:
@@ -248,7 +248,7 @@ class AtomContentGenerator(ContentGenerator):
         'updated': now,
     }
     rendered = utils.render_template("atom.xml", template_vals)
-    static.set('/feeds/atom.xml', rendered,
+    static.set('/feeds/atom.xml', rendered.encode('utf-8'),
                'application/atom+xml; charset=utf-8', indexed=False,
                last_modified=now)
     if config.hubbub_hub_url:
@@ -276,4 +276,4 @@ class PageContentGenerator(ContentGenerator):
         'page': page,
       }
       rendered = utils.render_template('pages/%s' % (page.template,), template_vals)
-      static.set(page.path, rendered, config.html_mime_type, indexed=page.indexed)
+      static.set(page.path, rendered.encode('utf-8'), config.html_mime_type, indexed=page.indexed)

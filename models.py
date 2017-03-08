@@ -44,6 +44,9 @@ class BlogPost(db.Model):
     """Returns the rendered body."""
     return markup.render_body(self)
 
+  def author_name(self):
+    return config.authors[self.author]
+
   @property
   def summary(self):
     """Returns a summary of the blog post."""

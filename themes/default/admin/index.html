@@ -27,7 +27,7 @@
         <tr>
           <td><a href="{{config.url_prefix}}/admin/post/{{post.key.id}}">{{post.title|escape}}</a></td>
 		  <td>
-			{{ config.authors|hash:post.author }}
+			{{post.author_name}}
           </td>
           <td>{% if post.path %}{{post.published|date:"Y-m-d"}}{% else %}Draft{% endif %}</td>
 	  <td>

@@ -7,15 +7,13 @@ from google.appengine.ext import db
 from google.appengine.ext import deferred
 from google.appengine.datastore import entity_pb
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
-from google.appengine.ext.webapp.util import run_wsgi_app
 
 import fix_path
 import aetycoon
 import config
 import utils
 
-webapp.template.register_template_library('django_helper')
+from django.utils import encoding
 
 HTTP_DATE_FMT = "%a, %d %b %Y %H:%M:%S GMT"
 
@@ -85,11 +83,10 @@ def set(path, body, content_type, indexed=True, **kwargs):
   memcache.replace(path, db.model_to_protobuf(content).Encode())
   try:
     eta = now.replace(second=0, microsecond=0) + datetime.timedelta(seconds=65)
-    if indexed:
-      deferred.defer(
-          utils._regenerate_sitemap,
-          _name='sitemap-%s' % (now.strftime('%Y%m%d%H%M'),),
-          _eta=eta)
+    deferred.defer(
+        utils._regenerate_sitemap,
+        _name='sitemap-%s' % (now.strftime('%Y%m%d%H%M'),),
+        _eta=eta)
   except (taskqueue.taskqueue.TaskAlreadyExistsError, taskqueue.taskqueue.TombstonedTaskError), e:
     pass
   return content
@@ -125,7 +122,7 @@ def remove(path):
 class StaticContentHandler(webapp.RequestHandler):
   def output_content(self, content, serve=True):
     if content.content_type:
-      self.response.headers['Content-Type'] = content.content_type
+      self.response.headers['Content-Type'] = encoding.smart_str(content.content_type)
     last_modified = content.last_modified.strftime(HTTP_DATE_FMT)
     self.response.headers['Last-Modified'] = last_modified
     self.response.headers['ETag'] = '"%s"' % (content.etag,)
@@ -179,12 +176,3 @@ class StaticContentHandler(webapp.RequestHandler):
 application = webapp.WSGIApplication([
                 ('(/.*)', StaticContentHandler),
               ])
-
-
-def main():
-  fix_path.fix_sys_path()
-  run_wsgi_app(application)
-
-
-if __name__ == '__main__':
-  main()

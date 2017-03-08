@@ -12,11 +12,46 @@ import models
 import post_deploy
 import utils
 
-from django import newforms as forms
-from google.appengine.ext.db import djangoforms
+from django import forms
 
+class ModelFormOptions(object):
+  """A simple class to hold internal options for a ModelForm class.
+  
+  Instance attributes:
+    model: a db.Model class, or None
+    fields: list of field names to be defined, or None
+    exclude: list of field names to be skipped, or None
 
-class PostForm(djangoforms.ModelForm):
+  These instance attributes are copied from the 'Meta' class that is
+  usually present in a ModelForm class, and all default to None.
+  """
+
+  def __init__(self, options=None):
+    self.model = getattr(options, 'model', None)
+    self.fields = getattr(options, 'fields', None)
+    self.exclude = getattr(options, 'exclude', None)
+
+class InitialDataForm(object):
+  def __init__(self, instance=None, initial=None, *args, **kwargs):
+    opts = ModelFormOptions(getattr(self, 'meta', None))
+    object_data = {}
+    if instance is not None:
+      for name, prop in instance.properties().iteritems():
+        if opts.fields and name not in opts.fields:
+          continue
+        if opts.exclude and name in opts.exclude:
+          continue
+        if hasattr(prop, 'get_value_for_form'):
+          object_data[name] = prop.get_value_for_form(instance)
+        else:
+          object_data[name] = getattr(instance, name)
+    if initial is not None:
+      object_data.update(initial)
+
+    kwargs['initial'] = object_data
+    super(InitialDataForm, self).__init__(*args, **kwargs)
+
+class PostForm(InitialDataForm, forms.Form):
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'name'}))
   author = forms.ChoiceField(
     choices=[(k, v) for k, v in config.authors.iteritems()])
@@ -61,6 +96,7 @@ class BaseHandler(webapp.RequestHandler):
 
 class AdminHandler(BaseHandler):
   def get(self):
+    from generators import generator_list
     offset = int(self.request.get('start', 0))
     count = int(self.request.get('count', 20))
     posts = models.BlogPost.all().order('-published').fetch(count, offset)
@@ -71,6 +107,7 @@ class AdminHandler(BaseHandler):
         'prev_offset': max(0, offset - count),
         'next_offset': offset + count,
         'posts': posts,
+        'generators': [cls.__name__ for cls in generator_list],
     }
     self.render_to_response("index.html", template_vals)
 
@@ -98,8 +135,21 @@ class PostHandler(BaseHandler):
                       'draft': post and post.published is None,
                       'author': current_user in config.authors and current_user or config.default_author})
     if form.is_valid():
-      post = form.save(commit=False)
-      if form.clean_data['draft']:# Draft post
+      data = {
+        'title': form.cleaned_data['title'],
+        'author': form.cleaned_data['author'],
+        'body': form.cleaned_data['body'],
+        'body_markup': form.cleaned_data['body_markup'],
+      }
+      if post is None:
+        post = models.BlogPost(**data)
+      else:
+        for name, value in data.iteritems():
+          setattr(post, name, value)
+      
+      post.tags = post.properties()['tags'].make_value_from_form(form.cleaned_data['tags'])
+      
+      if form.cleaned_data['draft']:# Draft post
         post.published = datetime.datetime.max
         post.put()
       else:
@@ -110,7 +160,7 @@ class PostHandler(BaseHandler):
         post.publish()
       self.render_to_response("published.html", {
           'post': post,
-          'draft': form.clean_data['draft']})
+          'draft': form.cleaned_data['draft']})
     else:
       self.render_form(form)
 
@@ -145,7 +195,7 @@ class RegenerateHandler(BaseHandler):
     self.render_to_response("regenerating.html")
 
 
-class PageForm(djangoforms.ModelForm):
+class PageForm(InitialDataForm, forms.Form):
   path = forms.RegexField(
     widget=forms.TextInput(attrs={'id':'path'}), 
     regex='(/[a-zA-Z0-9/]+)')
@@ -161,7 +211,7 @@ class PageForm(djangoforms.ModelForm):
     fields = [ 'path', 'title', 'template', 'body', 'indexed' ]
 
   def clean_path(self):
-    data = self._cleaned_data()['path']
+    data = self.cleaned_data['path']
     existing_page = models.Page.get_by_key_name(data)
     if not data and existing_page:
       raise forms.ValidationError("The given path already exists.")
@@ -220,10 +270,23 @@ class PageHandler(BaseHandler):
     else:
       form = PageForm(data=self.request.POST, instance=page, initial={})
     if form.is_valid():
-      oldpath = form._cleaned_data()['path']
+      oldpath = form.cleaned_data['path']
       if page:
         oldpath = page.path
-      page = form.save(commit=False)
+      
+      data = {
+        'path': form.cleaned_data['path'],
+        'title': form.cleaned_data['title'],
+        'body': form.cleaned_data['body'].encode('utf-8'),
+        'template': form.cleaned_data['template'],
+        'indexed': form.cleaned_data['indexed'],
+      }
+      if page is None:
+        page = models.Page(**data)
+      else:
+        for name, value in data.iteritems():
+          setattr(page, name, value)
+
       page.updated = datetime.datetime.now()
       page.publish()
       # path edited, remove old stuff
