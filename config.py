@@ -50,8 +50,7 @@ sidebars = [
     '<a href="http://www.doubledutchgames.com/contact/">Contact us</a>',
   ]),
   ('Games', [
-    '<a href="http://store.steampowered.com/app/207140/" target="_blank">SpeedRunners</a>',
-    '<a href="https://marketplace.xbox.com/en-US/Product/SpeedRunner-HD/66acd000-77fe-1000-9115-d8025855094c" target="_blank">SpeedRunner HD</a>',
+    '<a href="http://www.tinybuild.com/speedrunners" target="_blank">SpeedRunners</a>',
     '<a href="http://www.doubledutchgames.com/speedrunner" target="_blank">SpeedRunner</a>',
     '<a href="https://play.google.com/store/apps/details?id=com.doubledutchgames.tap321" target="_blank">321Tap</a>',
   ]),
