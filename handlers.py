@@ -198,7 +198,7 @@ class RegenerateHandler(BaseHandler):
 class PageForm(InitialDataForm, forms.Form):
   path = forms.RegexField(
     widget=forms.TextInput(attrs={'id':'path'}), 
-    regex='(/[a-zA-Z0-9/]+)')
+    regex='(^/[a-zA-Z0-9/]*$)')
   title = forms.CharField(widget=forms.TextInput(attrs={'id':'name'}))
   template = forms.ChoiceField(choices=config.page_templates.items())
   body = forms.CharField(widget=forms.Textarea(attrs={
